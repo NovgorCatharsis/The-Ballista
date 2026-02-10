@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0eae30db58aab479ae677faa27dc21, type: 3}
+  m_Name: EnemiesController
+  m_EditorClassIdentifier: Assembly-CSharp::EnemiesController
+  soldierPrefab: {fileID: 5849113700094320221, guid: 6819e102c6b463347b9657ce24d26d8e, type: 3}

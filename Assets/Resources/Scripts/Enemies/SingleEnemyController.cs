@@ -9,7 +9,7 @@ public class SingleEnemyController : MonoBehaviour
         UnityEngine.Vector3 enemyPosition = transform.position;
         transform.position = new UnityEngine.Vector3(enemyPosition.x, enemyPosition.y, enemyPosition.z + enemyOffset);
 
-        if (transform.position.z > -2) // Removing enemy if he has breached the defense
+        if (transform.position.z > -6) // Removing enemy if he has breached the defense
         {
             Destroy(gameObject);
         }

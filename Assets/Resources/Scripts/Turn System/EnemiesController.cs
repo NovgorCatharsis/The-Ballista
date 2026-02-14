@@ -54,13 +54,13 @@ public class EnemiesController : ScriptableObject
     void SpawnEnemies (List<int> spawnPositions)
     {
         Vector3 spawnCords = new Vector3(0, 0, 0);
-        Quaternion spawnRotation = new Quaternion(0, 180, 0, 0);
+        Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
         foreach (int position in spawnPositions)
         {
             Debug.Log ("SPAWN POSITION NUMBER  " + position);
-            if (position == 0) spawnCords = new Vector3((float)2.5, 0, -10);
-            else if (position == 1) spawnCords = new Vector3((float)0, 0, -10);
-            else if (position == 2) spawnCords = new Vector3((float)-2.5, 0, -10);
+            if (position == 0) spawnCords = new Vector3((float)2.5, 0, -14);
+            else if (position == 1) spawnCords = new Vector3((float)0, 0, -14);
+            else if (position == 2) spawnCords = new Vector3((float)-2.5, 0, -14);
 
             Instantiate(soldierPrefab, spawnCords, spawnRotation);
         }

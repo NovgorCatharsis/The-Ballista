@@ -72,6 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201f06ef33d78aa458c80c1bae9a63a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SingleEnemyController
+  whooshSound: {fileID: 8300000, guid: 65da05fa798e6ac46bbcd3d82d078e88, type: 3}
+  breachSound: {fileID: 8300000, guid: 850b603be7195f3449eea15536c6901c, type: 3}
+  playerObject: {fileID: 0}
 --- !u!1 &2326565340920182719
 GameObject:
   m_ObjectHideFlags: 0

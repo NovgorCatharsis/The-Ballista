@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/mainStyleSheet.uss?fileID=7433441132597879392&amp;guid=280896ca0f828a24c8f1cd3494d4a2c0&amp;type=3#mainStyleSheet" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(0, 0, 0); opacity: 1;">
+        <ui:Label text="...." name="mainLabel" class="mainText" style="justify-content: flex-start; align-self: center; align-content: auto; height: 271px; align-items: auto; background-position-x: center; right: 87px; left: 0; font-size: 44px; -unity-text-align: middle-center; top: 25%; -unity-font-definition: resource(&apos;UI/PIXELDIGIVOLVECYRILLIC&apos;); width: auto;" />
+        <ui:Label text="disappointment." name="surviveLabel" class="mainText" style="justify-content: flex-start; align-self: center; align-content: auto; height: 97px; align-items: auto; background-position-x: center; right: 712px; left: 0; -unity-text-align: middle-center; top: 25%; color: rgb(128, 27, 26);" />
+        <ui:Label text="&lt;Press any key to flee&gt;" name="pressKeyLabel" class="secondaryText" style="justify-content: flex-start; align-self: center; align-content: auto; height: 399px; align-items: auto; background-position-x: center; right: 87px; left: 0; font-size: 30px; -unity-text-align: middle-center; top: 25%;" />
+    </ui:VisualElement>
+</ui:UXML>

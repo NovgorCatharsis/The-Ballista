@@ -6,6 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     [SerializeField] private GameObject ballistaObject;
     [SerializeField] private AudioClip waterSplashSound;
+    [SerializeField] private AudioClip clickSound;
     private TurnController turnController;
     private TiltController tiltController;
     private ShootController shootController;
@@ -60,18 +61,20 @@ public class PlayerInputController : MonoBehaviour
     {
         if (isCursorOnArrow)
         {
+            AudioSource.PlayClipAtPoint(clickSound, transform.position, 0.25f);
             valuesController.hasArrow = true;
             Destroy(objectBeingLookedAt);
             turnController.TurnChange();
         }
         else if (isCursorOnBallista)
         {
+            AudioSource.PlayClipAtPoint(clickSound, transform.position, 0.25f);
             shootController.Reload();
             turnController.TurnChange();
         }
         else if (isCursorOnWater)
         {
-            AudioSource.PlayClipAtPoint(waterSplashSound, transform.position, 0.3f);
+            AudioSource.PlayClipAtPoint(waterSplashSound, transform.position, 0.15f);
             turnController.TurnChange();
             valuesController.fatigueLevel = 0;
         }

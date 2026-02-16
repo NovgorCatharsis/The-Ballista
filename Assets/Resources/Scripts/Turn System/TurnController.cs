@@ -10,12 +10,12 @@ public class TurnController : ScriptableObject
     public int turnCount;
     void OnEnable()
     {
-        playerObject = GameObject.Find("Player");
-        canvasObject = GameObject.Find("Canvas");
         turnCount = 0;
     }
     public void TurnChange()
     {
+        playerObject = GameObject.Find("Player");
+        canvasObject = GameObject.Find("Canvas");
         turnCount++;
         valuesController = playerObject.GetComponent<ValuesController>();
         valuesController.fatigueLevel += 5;
@@ -35,6 +35,7 @@ public class TurnController : ScriptableObject
         turnCount = 0;
         valuesController = playerObject.GetComponent<ValuesController>();
         valuesController.fatigueLevel = 0;
+        valuesController.breachLevel = 0;
         Debug.Log ("==========TURN COUNT " + turnCount + "==========");
     }
 }

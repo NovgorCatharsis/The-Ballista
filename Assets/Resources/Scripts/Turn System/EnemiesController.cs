@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemiesController : ScriptableObject
 {
     System.Random randomObject = new System.Random();
+    [SerializeField] private AudioClip marchSound;
     private GameObject[] enemiesObjects;
     private int enemiesSpawnNumber;
     TurnController turnController;
@@ -21,6 +22,7 @@ public class EnemiesController : ScriptableObject
     public void InitiateEnemies()
     {
         Initiate();
+        AudioSource.PlayClipAtPoint(marchSound, GameObject.Find("Player").transform.position, 1f);
         foreach (GameObject enemyObject in enemiesObjects)
         {
             //Move Enemies

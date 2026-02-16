@@ -1,3 +1,28 @@
 :root {
+}
 
+.mainText {
+    -unity-font-definition: resource('UI/PIXELDIGIVOLVECYRILLIC');
+    font-size: 44px;
+    color: rgb(128, 56, 41);
+}
+
+.secondaryText {
+    -unity-font-definition: resource('UI/PIXELDIGIVOLVECYRILLIC');
+    color: rgb(94, 41, 31);
+    font-size: 30px;
+}
+
+.arrow {
+}
+
+.arrow:hover {
+    -unity-background-image-tint-color: rgb(173, 33, 33);
+}
+
+.button {
+}
+
+.button:hover {
+    color: rgb(140, 14, 0);
 }

@@ -38,7 +38,7 @@ public class ShootController : MonoBehaviour
         {
             child.gameObject.GetComponent<Renderer>().enabled = false;
         }
-        AudioSource.PlayClipAtPoint(ballistaShootSound, transform.position, 0.3f);
+        AudioSource.PlayClipAtPoint(ballistaShootSound, transform.position, 0.6f);
 
         //Test to see if there is a hit using a BoxCast
         //Calculate using the center of the GameObject's Collider(could also just use the GameObject's position), half the GameObject's size, the direction, the GameObject's rotation, and the maximum distance as variables.
@@ -79,7 +79,7 @@ public class ShootController : MonoBehaviour
         {
             child.gameObject.GetComponent<Renderer>().enabled = true;
         }
-        AudioSource.PlayClipAtPoint(ballistaReloadSound, transform.position, 0.3f);
+        AudioSource.PlayClipAtPoint(ballistaReloadSound, transform.position, 0.6f);
         //stringEmpty.transform.position = new Vector3 (0,-100,0);
         //stringLoaded.transform.position = new Vector3 (0,0,0);
     }

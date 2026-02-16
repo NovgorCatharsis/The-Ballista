@@ -4,6 +4,7 @@ using Button = UnityEngine.UIElements.Button;
 
 public class mainUIController : MonoBehaviour
 {
+    [SerializeField] private AudioClip clickSound;
     private UIDocument UIDocument;
     private Button lookLeftButton;
     private Button lookRightButton;
@@ -41,6 +42,8 @@ public class mainUIController : MonoBehaviour
         {
             y = y - (y%90);
         }*/
+        AudioSource.PlayClipAtPoint(clickSound, transform.position, 0.25f);
+
         ballistaObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         ballistaObject.GetComponent<TiltController>().ballistaYaw = 0;
         ballistaObject.GetComponent<TiltController>().ballistaPitch = 0;

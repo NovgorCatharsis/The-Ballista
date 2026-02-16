@@ -9,23 +9,22 @@ public class BlinkingController : MonoBehaviour
     public Animator blinkAnimator;
 
     private GameObject playerObject;
-    private FatigueController fatigueController;
+    private ValuesController valuesController;
 
     EnemiesController enemiesController;
 
-    void Initiate()
+    void Awake()
     {
         enemiesController = Resources.Load<EnemiesController>("Scripts/Turn System/EnemiesController");
         playerObject = GameObject.Find("Player");
-        fatigueController = playerObject.GetComponent<FatigueController>();
+        valuesController = playerObject.GetComponent<ValuesController>();
     }
     public void Blink()
     {
-        Initiate();
+        //Initiate();
         int defaultBlinkRoll = randomObject.Next(0, 50);
-        int fatigueLevel = fatigueController.fatigueLevel; //from 0 to 100
-        int totalBlinkRoll =  defaultBlinkRoll + fatigueLevel;
-
+        //int fatigueLevel = valuesController.fatigueLevel; //from 0 to 100
+        int totalBlinkRoll =  defaultBlinkRoll + valuesController.fatigueLevel;
         if (totalBlinkRoll > blinkRollCap)
         {
             blinkAnimator.SetTrigger("Blink");

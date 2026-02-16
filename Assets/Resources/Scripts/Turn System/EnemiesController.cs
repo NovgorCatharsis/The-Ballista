@@ -9,7 +9,9 @@ public class EnemiesController : ScriptableObject
     private GameObject[] enemiesObjects;
     private int enemiesSpawnNumber;
     TurnController turnController;
-    [SerializeField] GameObject soldierPrefab;
+    private GameObject enemiesGroup;
+    [SerializeField] GameObject soldierGroupPrefab;
+    [SerializeField] GameObject knightGroupPrefab;
 
     void Initiate()
     {
@@ -29,8 +31,8 @@ public class EnemiesController : ScriptableObject
         int turnCount = turnController.turnCount;
         if (turnCount < 5) enemiesSpawnNumber = randomObject.Next(0, 2);
         else if (turnCount < 10) enemiesSpawnNumber = randomObject.Next(1, 2);
-        else if (turnCount < 13) enemiesSpawnNumber = randomObject.Next(1, 3);
-        else if (turnCount < 15) enemiesSpawnNumber = randomObject.Next(2, 4);
+        else if (turnCount < 20) enemiesSpawnNumber = randomObject.Next(1, 3);
+        else if (turnCount < 30) enemiesSpawnNumber = randomObject.Next(2, 4);
         else enemiesSpawnNumber = randomObject.Next(2, 4);
 
         List<int> spawnPositions = new List<int>();
@@ -48,21 +50,23 @@ public class EnemiesController : ScriptableObject
         }
         
         Debug.Log ("SPAWN POSITIONS AMOUNT " + spawnPositions.Count);
-        SpawnEnemies(spawnPositions);
+        if (randomObject.Next(0, 2) == 0) enemiesGroup = soldierGroupPrefab;
+        else if (randomObject.Next(0, 2) == 1) enemiesGroup = knightGroupPrefab;
+        SpawnEnemies(spawnPositions, enemiesGroup);
     }
 
-    void SpawnEnemies (List<int> spawnPositions)
+    void SpawnEnemies (List<int> spawnPositions, GameObject enemiesGroup)
     {
         Vector3 spawnCords = new Vector3(0, 0, 0);
         Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
         foreach (int position in spawnPositions)
         {
             Debug.Log ("SPAWN POSITION NUMBER  " + position);
-            if (position == 0) spawnCords = new Vector3((float)2.5, 0, -14);
-            else if (position == 1) spawnCords = new Vector3((float)0, 0, -14);
-            else if (position == 2) spawnCords = new Vector3((float)-2.5, 0, -14);
+            if (position == 0) spawnCords = new Vector3(5, -0.5f, -44);
+            else if (position == 1) spawnCords = new Vector3(0, -0.5f, -44);
+            else if (position == 2) spawnCords = new Vector3(-5, -0.5f, -44);
 
-            Instantiate(soldierPrefab, spawnCords, spawnRotation);
+            Instantiate(enemiesGroup, spawnCords, spawnRotation);
         }
     }
 }

@@ -1,29 +1,36 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-
-public class MouseController : MonoBehaviour
+public class TiltController : MonoBehaviour
 {
-    public float rotationSpeed;
-    private PlayerInput playerInput;
-    private GameObject ballistaObject;
-    private new Camera camera;
-    private Vector2 movementInput;
+    public float ballistaYaw;
+    public float ballistaPitch;
+
     void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
-        ballistaObject = GameObject.Find("BallistaMain");
-        camera = Camera.main;
+        ballistaYaw = gameObject.transform.localEulerAngles.y;
+        ballistaPitch = gameObject.transform.localEulerAngles.x;
     }
     
-    private void OnMove(InputValue inputValue)
+    public void Tilt (float deltaYaw, float deltaPitch)
     {
-        movementInput = inputValue.Get<Vector2>();
+        if ((ballistaYaw < 20 && deltaYaw > 0) || (ballistaYaw > -20 && deltaYaw < 0))
+        {
+            ballistaYaw += deltaYaw;
+        }
+        if ((ballistaPitch < 15 && deltaPitch > 0) || (ballistaPitch > -15 && deltaPitch < 0))
+        {
+            ballistaPitch += deltaPitch;
+        }
+        gameObject.transform.localRotation = Quaternion.Euler(ballistaPitch, ballistaYaw, 0f);
     }
 
+}
+/*
     void FixedUpdate()
     {
+
+
+        /*
         Rigidbody ballistaRigidbody = ballistaObject.GetComponent<Rigidbody>();
         Quaternion ballistaRotation = Quaternion.Euler(
             movementInput.y * rotationSpeed,
@@ -40,7 +47,7 @@ public class MouseController : MonoBehaviour
         }
         
         ballistaRigidbody.MoveRotation(endRotation);
-
+        */
 
 
 
@@ -101,5 +108,3 @@ public class MouseController : MonoBehaviour
             ballistaRigidbody.rotation.Set(ballistaRigidbody.rotation.x,-20,ballistaRigidbody.rotation.z,0);
         }
         */
-    }
-}

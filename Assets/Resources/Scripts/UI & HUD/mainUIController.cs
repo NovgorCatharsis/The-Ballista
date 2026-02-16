@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
@@ -11,6 +10,7 @@ public class mainUIController : MonoBehaviour
     private Button turnSkipButton;
     private Button turnResetButton;
     private GameObject playerObject;
+    private GameObject ballistaObject;
     TurnController turnController;
 
     void Awake()
@@ -18,6 +18,7 @@ public class mainUIController : MonoBehaviour
         UIDocument = GetComponent<UIDocument>();
         VisualElement root = UIDocument.rootVisualElement;
         playerObject = GameObject.Find("Player");
+        ballistaObject = GameObject.Find("Ballista");
         lookLeftButton = root.Q<Button>("lookLeftButton");
         lookRightButton = root.Q<Button>("lookRightButton");
         turnSkipButton = root.Q<Button>("turnSkipButton");
@@ -34,6 +35,16 @@ public class mainUIController : MonoBehaviour
 
     public void LookAround (string direction)
     {
+        /*float x = ballistaObject.transform.localEulerAngles.x;
+        float y = ballistaObject.transform.localEulerAngles.y;
+        if (y%90 != 0)
+        {
+            y = y - (y%90);
+        }*/
+        ballistaObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        ballistaObject.GetComponent<TiltController>().ballistaYaw = 0;
+        ballistaObject.GetComponent<TiltController>().ballistaPitch = 0;
+
         if (direction == "left")
         {
 
@@ -49,6 +60,7 @@ public class mainUIController : MonoBehaviour
         }
 
         if (playerObject.transform.rotation.Equals(new Quaternion(0,0,0,1)))
+        //if (y == 180)
         {
             lookRightButton.SetEnabled(true);
             lookLeftButton.SetEnabled(true);

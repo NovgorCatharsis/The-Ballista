@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c009e49d227f5a046b3ea5dee959b1c9, type: 3}
   m_Name: TurnController
   m_EditorClassIdentifier: Assembly-CSharp::TurnController
+  moonObject: {fileID: 0}
+  canvasObject: {fileID: 5849113700094320221, guid: 6819e102c6b463347b9657ce24d26d8e, type: 3}
+  turnCount: 0

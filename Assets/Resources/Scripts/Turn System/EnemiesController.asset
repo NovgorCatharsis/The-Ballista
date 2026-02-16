@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0eae30db58aab479ae677faa27dc21, type: 3}
   m_Name: EnemiesController
   m_EditorClassIdentifier: Assembly-CSharp::EnemiesController
-  soldierPrefab: {fileID: 5849113700094320221, guid: 6819e102c6b463347b9657ce24d26d8e, type: 3}
+  soldierGroupPrefab: {fileID: 660079524947189210, guid: f6d7d6cef5a5a1d4da437a610f53cf4c, type: 3}
+  knightGroupPrefab: {fileID: 4817597626873517107, guid: ca4a1badabc0bac449c48f1fd2568911, type: 3}

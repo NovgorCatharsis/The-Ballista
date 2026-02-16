@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TurnController", menuName = "Scriptable Objects/TurnController")]
@@ -6,28 +5,36 @@ public class TurnController : ScriptableObject
 {
     private GameObject moonObject;
     private GameObject canvasObject;
+    private GameObject playerObject;
+    private ValuesController valuesController;
     public int turnCount;
     void OnEnable()
     {
-        //blinkingController = Resources.Load<BlinkingController>("Scripts/UI/BlinkingController");
+        playerObject = GameObject.Find("Player");
         canvasObject = GameObject.Find("Canvas");
-        moonObject = GameObject.Find("Moon");
         turnCount = 0;
     }
     public void TurnChange()
     {
         turnCount++;
+        valuesController = playerObject.GetComponent<ValuesController>();
+        valuesController.fatigueLevel += 5;
         Debug.Log ("==========TURN COUNT " + turnCount + "==========");
 
-        //blinkingController.Blink();
-        Debug.Log (canvasObject == null);
         canvasObject.GetComponent<BlinkingController>().Blink();
+        moonObject = GameObject.Find("Moon");
+        if (moonObject == null)
+        {
+            moonObject = GameObject.Find("BloodMoon(Clone)");
+        }
         moonObject.GetComponent<MoonController>().MoonMotion();
     }
 
     public void TurnReset()
     {
         turnCount = 0;
+        valuesController = playerObject.GetComponent<ValuesController>();
+        valuesController.fatigueLevel = 0;
         Debug.Log ("==========TURN COUNT " + turnCount + "==========");
     }
 }
